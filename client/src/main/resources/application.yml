@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+feign:
+  httpclient:
+    connection-timeout: 1000
+    enabled: true
+  client:
+    config:
+      default:
+        connect-timeout: 3000
+        read-timeout: 3000
+        logger-level: basic
+        encoder: ru.example.client.utils.Encoder
+        decoder: ru.example.client.utils.Decoder
+      server:
+        url: localhost:8080
+
+params:
+  ids-range-first: -10
+  ids-range-end: 1
+  r-count: 2
+  w-count: 2
